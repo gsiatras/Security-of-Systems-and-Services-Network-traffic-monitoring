@@ -12,6 +12,7 @@
 #include <sys/socket.h>
 #include <net/ethernet.h>
 
+
 char* filter = NULL;
 int filter_port = 0;
 int flag = -1;
@@ -23,6 +24,8 @@ int udppackets = 0;
 long tcpbytes = 0;
 long udpbytes = 0;
 
+
+
 struct network_flow {
     char *source_ip;
     char *destination_ip;
@@ -32,6 +35,8 @@ struct network_flow {
 };
 
 struct network_flow network_flows[10000];
+
+
 
 int getTCPflows() {
     int tcpCount = 0;
@@ -444,7 +449,9 @@ int online_monitor(char *interface_name) {
         return 1;
     }
 
+   
     pcap_loop(handle, 0, packet_handler, NULL);
+    
 
     pcap_close(handle);
 
